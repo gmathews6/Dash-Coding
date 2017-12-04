@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en-us">
+   <head>
+     <title>2.3 Gary's Blog</title>
+     <meta charset="UTF-8">
+     <!-- IE Compatibility Mode -->
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge"> 
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="description" content="Responsive Blog">
+     <meta name="keywords" content="Responsive, Blog, HTML, CSS">
+     <meta name="author" content="Gary Mathews II">
+     <!-- Normalize.css = Makes Browsers render all elements more consistently and in line with modern standards. -->
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css" rel="stylesheet">
+     <!-- JQuery CDN. Needed to run JQuery on website. -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <style>
+       header {
+       	text-align: center;
+       	background: url("https://www.planwallpaper.com/static/images/background-image-1_ubNTL68.jpg");
+       	background-size: cover;
+       	color: darkblue;
+       }
+       
+       img {
+       	margin: 40px 0px 0px 0px;
+       	border: 15px solid white;
+       	border-radius: 20px;
+       }
+
+       h1 {
+       	font-size: 70px;
+       }
+
+       /* By default, the browser puts extra padding on the left to make room for the bullet points (which causes the links to be off-center.  Adding this property fixes that issue. */
+       
+       ul {
+       	padding: 10px;
+       	background: rgba(0,0,0,0.5);
+       }
+ 	   
+       /* Makes the links all line up next to each other in a row. */
+
+ 	   li {
+ 	   	display: inline;
+ 	   	padding: 0px 10px 0px 10px;
+ 	   }
+
+ 	   a {
+ 	   	color: white;
+ 	   }
+
+     article {
+      /* Max-wdith means that the articl can be smaller than 500px, but not any larger...thus, the width of the article will resize if the width of the window gets smaller. */
+      max-width: 500px;
+      padding: 20px;
+      margin: 0 auto;
+     }
+
+     /* Media Query - a technique that allows us to set CSS styles that only activate when certain conditions are met.  =  Responsive Design  */
+
+     @media (max-width: 500px) {
+       body {
+        background: red;
+       }
+       h1 {
+        font-size: 36px;
+       }
+       li {
+        display: block;
+        padding: 5px;
+       }
+     }
+     </style>
+  </head>
+<body>
+  <header>
+    <img src="Gary Facebook.jpeg" alt="Gary's Facebook Profile Picture">
+    <h1>Gary's Blog</h1>
+    <ul>
+      <li><a href="#">About Me</a></li>
+      <li><a href="#">Best Poems</a></li>
+      <li><a href="#">Worst Poems</a></li>
+    </ul>
+  </header>
+  <article>
+    <h2>VHS umami pop-up trust fund</h2>
+    <p>Marfa church-key kitsch bicycle rights, 8-bit mixtape cardigan gentrify Echo Park. Street art swag brunch, next level roof party Schlitz hella organic keffiyeh selfies. You probably haven't heard of them polaroid hashtag +1, meggings biodiesel Portland High Life cray tumblr retro.</p>
+
+    <!-- JavaScript makes webpages interactive. Use Ruby on Rails to program back-end server to gauge the popularity of each poem...Like button.  -->
+
+    <button>Like</button>
+  </article>
+  <article>
+    <h2>Sartorial synth Echo Park, roof party</h2>
+    <p>chambray you probably haven't heard of them pour-over viral selvage umami skateboard VHS post-ironic selfies. Wes Anderson gentrify fanny pack twee, bicycle rights bitters blog keffiyeh plaid flannel. Tonx irony cliche sustainable mlkshk bitters. Four loko leggings chambray Vice.</p>
+    <button>Like</button>
+  </article>
+  <article>
+    <h2>Forage food truck keytar master cleanse</h2>
+    <p>ethical thundercats sustainable locavore quinoa Neutra. Aesthetic tacky sweater single-origin coffee, bicycle rights organic lo-fi street art american apparel ennui four loko ethnic Brooklyn small batch. Forage YOLO polaroid</p>
+    <button>Like</button>
+  </article>
+
+  <!-- We can include JavaScript in our Webpage by including the script tag towards the end of the body tag. 
+       We can use JavaScript to listen for events (button clicks, the pressing of a key, scrolling), and then take action when they happen.-->
+  <!-- JQuery is a JavaScript library. It simplifies the programming and development of JavaScript-based applications
+       and other web-centric technologies. The following code uses JQuery to make it eaiser to select elements and listen for events.  -->
+
+  <script>
+    $("button").on("click", function() {
+      alert("clicked!");
+    });
+  </script>
+
+</body>
+</html>

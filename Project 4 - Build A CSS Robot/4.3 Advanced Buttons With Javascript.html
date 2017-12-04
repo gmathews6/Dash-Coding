@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>4.3 Gary's Robot</title>
+  <meta charset="UTF-8">
+  <!-- IE Compatibility Mode -->
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge"> 
+  <meta name="description" content="A CSS Robot">
+  <meta name="keywords" content="Robot, Responsive, HTML, CSS, Javascript, JQuery">
+  <meta name="author" content="Gary Mathews II">
+  <link href="https://fonts.googleapis.com/css?family=Poller+One" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css" rel="stylesheet">
+  <!-- JQuery CDN. Needed to run JQuery on website. -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <style>
+    .beep {
+    	height: 0px;
+    	width: 5px;
+    	/* border-left: 5px solid transparent;
+    	border-right: 5px solid transparent; 
+    	
+    	Since both the left and right borders have the same CSS, can simply specify the following: */
+    	
+    	border: 5px solid transparent;
+
+    	/* Then can use CSS's functionality of reading and applying styles from top to bottom to override the top and bottom borders as follows: */
+
+    	border-bottom: 80px solid #888;
+    	border-top: 10px solid #777;
+        position: relative; /* Allows you to break the normal flow of the document. */
+        left: 140px; /* Go 70px from the left side. */
+    }
+    @keyframes blink {
+        50% {
+            background: radial-gradient(circle, red 15%, transparent 40%), #cc5;
+            background: -webkit-radial-gradient(circle, red 15%, transparent 40%), #cc5;
+            background: -moz-radial-gradient(circle, red 15%, transparent 40%), #cc5;
+        }
+    }
+    @-webkit-keyframes blink {
+        50% {
+            background: -webkit-radial-gradient(circle, red 15%, transparent 40%), #cc5;
+        }
+    }
+    @-moz-keyframes blink {
+        50% {
+            background: -webkit-radial-gradient(circle, red 15%, transparent 40%), #cc5;
+        }
+    }
+    .laser {
+      animation: blink .5s infinite;
+      -webkit-animation: blink .5s infinite;
+      -moz-animation: blink .5s infinite;
+    }
+    .brain {
+      /*animation: blink .5s infinite;
+    	-webkit-animation: blink .5s infinite;
+      -moz-animation: blink .5s infinite;*/
+      height: 150px;
+    	width: 150px;
+    	/*background: #cc5;*/
+    	border-bottom: 40px solid #666;
+    	border-radius: 60px 60px 10px 10px;
+    	background: radial-gradient(circle, white 15%, transparent 40%), #cc5;
+    	background: -webkit-radial-gradient(circle, white 15%, transparent 40%), #cc5;
+    	background: -moz-radial-gradient(circle, white 15%, transparent 40%), #cc5;
+    	/* Makes the gradient think that it's only half the width but still the full 150px in height. So the radial gradient becomes 2 in order to fill each half of the width. */
+    	background-size: 75px 150px;
+      position: relative;
+      left: 70px; /* Go 70px from the left side. */
+    }
+    .torso {
+    	height: 0px;
+    	width: 140px;
+    	border-left: 75px solid transparent;
+    	border-right: 75px solid transparent;
+    	border-top: 300px solid #bc6;
+    	border-radius: 20px 20px 100px 100px;
+    }
+    .foot {
+    	height: 40px;
+    	width: 40px;
+    	background: #ccc;
+    	/* To create a perfectly circular curve, make the radius at least half the length of the shape's edge = 20px.  Was increased to 35px as the border was added to the height of the div (40px + 15px(top border) + 15px(bottom border) */
+    	border-radius: 35px;
+    	border: 15px solid #999;
+        position: relative;
+        left: 110px;
+        top: -10px;
+        z-index: -1; /* Moves the wheel behind the torso. */
+    }
+    /*.triangle {
+    	height: 0px;
+    	width: 0px;
+    	border-left: 50px solid transparent;
+    	border-right: 50px solid transparent;
+    	border-bottom: 100px solid red;
+    }*/
+    .robot {
+        position: relative;
+        left: 200px;
+    }
+    .left {
+        font-family: 'Poller One', verdana, arial, sans-serif;
+        font-weight: bold;
+        font-size: 250px;
+        color: #666;
+        transform: rotate(200deg);
+        -webkit-transform: rotate(200deg);
+        -moz-transform: rotate(200deg);
+        left: -190px;
+        top: -320px;
+        position: relative;
+        left: -190px;
+        top: -320px;
+        z-index: -1;
+    }
+    .right {
+        font-family: 'Poller One', verdana, arial, sans-serif;
+        font-weight: bold;
+        font-size: 250px;
+        color: #666;
+        transform: scaleY(-1) rotate(20deg);
+        -webkit-transform: scaleY(-1) rotate(20deg);
+        -moz-transform: scaleY(-1) rotate(20deg);
+        position: relative;
+        left: 190px;
+        top: -605px;
+        z-index: -1;
+    }
+  </style>
+
+</head>
+<body>
+  <div class="robot">
+    <div class="beep"></div>
+    <div class="brain"></div>
+    
+    <div class="torso">
+      <div class="left">j</div>
+      <div class="right">j</div>
+    </div>
+    
+    <div class="foot"></div>
+    <div class="triangle"></div>
+  </div>
+  <button class="flash">Laser Eyes On/Off</button>
+  <button class="color">Change Color</button>
+
+
+  <!-- TOGGLE LASER CLASS ON BRAIN. When you hear a click on the flash class, it should add or remove the laser class to or from anything with a brain class. -->
+  <script>
+    
+    $(".flash").on("click", function() {
+      $(".brain").toggleClass("laser");
+    });
+
+    //Change the background color.
+    $(".color").on("click", function () {
+      //Asks Javascript to geenrate random number between 0 and 255.
+      var red = Math.floor(Math.random() * 255);
+      var green = Math.floor(Math.random() * 255);
+      var blue = Math.floor(Math.random() * 255);
+
+      //Display the number in an alert window.
+      alert("These are the random numbers: " + red + ", " + green + ", and " + blue);
+    });
+
+  </script>
+
+</body>
+</html>
+
+<!-- NOTES -->
+
+<!-- To make an empty div visible, it needs a width, a height, and a background or a border color. -->
+<!-- A border needs a width, style (solid, dashed, dotted, or double), and color to become visible. -->
+<!-- You can style the borders of any HTML element one by one to make triangles, stars, trapezoids, and more. -->
+
+<!-- The triangle has no width, height, or background color.  So, it should not be visible.  But there is a width, style, and color applied on its bottom border.  -->
+
+<!--BORDER RADIUS -->
+<!-- border-radius: 100px 100px 100px 100px; -->
+
+<!-- RADIAL GRADIENT -->
+<!-- background: radial-gradient(shape, centercolor, outcolor), [a color preserve the existing background]; -->
+<!-- By default a round radial gradient wants to be centered in the HTML element that contains it.  Thus, use background-size to control how many times, and where it appears in the shape. -->
+
+<!-- BACKGROUND SIZE -->
+<!-- background-size: width height; -->
+<!-- Could have also used background-size: 50% 100%; above -->
+
+<!-- CARTESIAN COORDINATES -->
+<!-- As you move to the right, the X values increase. As you move down, the Y values increase. -->
+
+<!-- TRANSFORM CSS Property -->
+<!-- Transform lets you rotate content. Must be vendor prefixed.
+     transform: rotate(200deg);
+     -webkit-transform: rotate(200deg);
+     -moz-transform: rotate(200deg);
+
+     Use the scaleY property to flip an element about the Y-axis.
+     You can only declare transform ONCE per element. So if something needs more than one transform, hey all get listed in the same declaration.
+
+     transform: scaleY(-1) rotate(20deg); -->
+
+<!-- CSS ANIMATION -->
+<!-- Define it, then assign it. Must define it above the element that we are applying the animation to. (brain)
+     
+     DEFINITION:
+     @keyframes [name] {
+       50% (50% through the anmiation, the color will change from white to red) {
+         background: radial-gradient(circle, red 15%, transparent 40%), #cc5;
+       }
+     }
+
+     ASSIGNMENT:
+     In the styling of brain
+     animation: blink, .5s infinite;
+     animation: [name] [every # seconds] [# of times]
+
+-->
+
+

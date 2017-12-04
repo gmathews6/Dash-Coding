@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>5.1 Gary's Game</title>
+  <meta charset="UTF-8">
+  <!-- IE Compatibility Mode -->
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge"> 
+  <meta name="description" content="A Madlibs Style Game">
+  <meta name="keywords" content="Madlibs, Game, Responsive, HTML, CSS, JavaScript">
+  <meta name="author" content="Gary Mathews II">
+  <!-- JQuery CDN. Needed to run JQuery on website. -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+  <div class="prompt"></div>
+  <script>
+  	var prompts = [
+  		"Type your name",
+  		"Type an adjective",
+  		"Type a noun"
+  	];
+
+  	//Tells you how many items are in the array.
+  	//alert("This is the array length: " + prompts.length);
+  	
+  	//Displays the second element in the array.
+  	//alert(prompts[1]);
+
+  	//Says to find a class named ".prompt", put whatever is in the zero-position of array "prompts" inside it.
+  	//Appears on screen.
+  	$(".prompt").html(prompts[2]);
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>5.4 Gary's Game</title>
+  <meta charset="UTF-8">
+  <!-- IE Compatibility Mode -->
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge"> 
+  <meta name="description" content="A Madlibs Style Game">
+  <meta name="keywords" content="Madlibs, Game, Responsive, HTML, CSS, JavaScript">
+  <meta name="author" content="Gary Mathews II">
+  <!-- JQuery CDN. Needed to run JQuery on website. -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+  <div class="prompt"></div>
+  <button>Next</button>
+  <script>
+  	var prompts = [
+  		"Type your name",
+  		"Type an adjective",
+  		"Type a noun"
+  	];
+
+    //Will hold users' answers
+    var answers = [];
+
+    //Keeps track of which prompt we are on.
+    var currentPrompt = 0;
+    var currentAnswer;
+
+    var nextPrompt = function() {
+      if (currentPrompt != 0 ) {
+        answers.push($("input").val());
+      }
+      if (currentPrompt < prompts.length) {
+        
+        //Displays the value entered by the user
+        //This should go BEFORE an empty form gets added to the page. (Not sure why)
+        alert($("input").val());
+
+        //Add form field after displaying prompt.
+        $(".prompt").html(prompts[currentPrompt] + '<br><input type="text">');
+        //currentPrompt = currentPrompt + 1;
+      
+        currentPrompt = currentPrompt + 1;
+
+      }
+      else {
+        //Show answers when no more prompts left.
+        showFinal();
+        //$(".prompt").html("That's all for now.")
+        //alert(answers);
+
+      }
+    }
+
+    var showFinal = function() {
+      $(".prompt").html(answers[0] + " " + answers[1] + " " + answers[2]);
+    }
+
+    $("button").on("click", function() {
+      nextPrompt();
+    });
+
+    //Make the first prompt visible on the page load by calling nextPrompt().
+    nextPrompt();
+
+  </script>
+</body>
+</html>
+
+<!-- CAPTURING INPUT -->
+<!-- Use the val() function to capture input. i.e $("input").val() -->
+
+
+

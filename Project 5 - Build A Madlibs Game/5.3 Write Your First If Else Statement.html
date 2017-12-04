@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>5.3 Gary's Game</title>
+  <meta charset="UTF-8">
+  <!-- IE Compatibility Mode -->
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge"> 
+  <meta name="description" content="A Madlibs Style Game">
+  <meta name="keywords" content="Madlibs, Game, Responsive, HTML, CSS, JavaScript">
+  <meta name="author" content="Gary Mathews II">
+  <!-- JQuery CDN. Needed to run JQuery on website. -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+  <div class="prompt"></div>
+  <button>Next</button>
+  <script>
+  	var prompts = [
+  		"Type your name",
+  		"Type an adjective",
+  		"Type a noun"
+  	];
+
+    //Keeps track of which prompt we are on.
+    var currentPrompt = 0;
+
+    var nextPrompt = function() {
+      if (currentPrompt < prompts.length) {
+        $(".prompt").html(prompts[currentPrompt]);
+        currentPrompt = currentPrompt + 1;
+      }
+      else {
+        alert("No more prompts available.")
+        $(".prompt").html("That's all for now.")
+      }
+    }
+
+    $("button").on("click", function() {
+      nextPrompt();
+    });
+
+    //Make the first prompt visible on the page load by calling nextPrompt().
+    nextPrompt();
+
+  </script>
+</body>
+</html>

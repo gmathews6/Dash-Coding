@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>5.2 Gary's Game</title>
+  <meta charset="UTF-8">
+  <!-- IE Compatibility Mode -->
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge"> 
+  <meta name="description" content="A Madlibs Style Game">
+  <meta name="keywords" content="Madlibs, Game, Responsive, HTML, CSS, JavaScript">
+  <meta name="author" content="Gary Mathews II">
+  <!-- JQuery CDN. Needed to run JQuery on website. -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+  <div class="prompt"></div>
+  <button>Next</button>
+  <script>
+  	var prompts = [
+  		"Type your name",
+  		"Type an adjective",
+  		"Type a noun"
+  	];
+
+    //Keeps track of which prompt we are on.
+    var currentPrompt = 0;
+
+  	//Tells you how many items are in the array.
+  	//alert("This is the array length: " + prompts.length);
+  	
+  	//Displays the second element in the array.
+  	//alert(prompts[1]);
+
+  	//Says to find a class named ".prompt", put whatever is in the zero-position of array "prompts" inside it.
+  	//Appears on screen.
+
+    var nextPrompt = function() {
+      $(".prompt").html(prompts[currentPrompt]);
+      currentPrompt = currentPrompt + 1;
+    }
+
+    /* Can also define function this way:
+    function nextPrompt() {
+      $(".prompt").html(prompts[currentPrompt+1]);
+      currentPrompt = currentPrompt + 1;
+    } */
+
+    $("button").on("click", function() {
+      nextPrompt();
+    });
+
+  </script>
+</body>
+</html>

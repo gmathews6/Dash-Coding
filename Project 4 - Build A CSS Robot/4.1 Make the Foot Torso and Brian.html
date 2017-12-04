@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>4.1 Gary's Robot</title>
+  <meta charset="UTF-8">
+  <!-- IE Compatibility Mode -->
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge"> 
+  <meta name="description" content="A CSS Robot">
+  <meta name="keywords" content="Robot, Responsive, HTML, CSS, Javascript, JQuery">
+  <meta name="author" content="Gary Mathews II">
+
+  <style>
+    div {
+    	height: 150px;
+    	width: 300px;
+    	/* Shows the divs. */
+    	/*background: #cc5;*/
+    	margin: 0 auto;
+    }
+    .beep {
+    	height: 0px;
+    	width: 5px;
+    	/* border-left: 5px solid transparent;
+    	border-right: 5px solid transparent; 
+    	
+    	Since both the left and right borders have the same CSS, can simply specify the following: */
+    	
+    	border: 5px solid transparent;
+
+    	/* Then can use CSS's functionality of reading and applying styles from top to bottom to override the top and bottom borders as follows: */
+
+    	border-bottom: 80px solid #888;
+    	border-top: 10px solid #777;
+    }
+    .brain {
+    	height: 150px;
+    	width: 150px;
+    	/*background: #cc5;*/
+    	border-bottom: 40px solid #666;
+    	border-radius: 60px 60px 10px 10px;
+    	background: radial-gradient(circle, white 15%, transparent 40%), #cc5;
+    	background: -webkit-radial-gradient(circle, white 15%, transparent 40%), #cc5;
+    	background: -moz-radial-gradient(circle, white 15%, transparent 40%), #cc5;
+    	/* Makes the gradient think that it's only half the width but still the full 150px in height. So the radial gradient becomes 2 in order to fill each half of the width. */
+    	background-size: 75px 150px;
+    }
+    .torso {
+    	height: 0px;
+    	width: 140px;
+    	border-left: 75px solid transparent;
+    	border-right: 75px solid transparent;
+    	border-top: 300px solid #bc6;
+    	border-radius: 20px 20px 100px 100px;
+    }
+    .foot {
+    	height: 40px;
+    	width: 40px;
+    	background: #ccc;
+    	/* To create a perfectly circular curve, make the radius at least half the length of the shape's edge = 20px.  Was increased to 35px as the border was added to the height of the div (40px + 15px(top border) + 15px(bottom border) */
+    	border-radius: 35px;
+    	border: 15px solid #999;
+    }
+    
+    /*.triangle {
+    	height: 0px;
+    	width: 0px;
+    	border-left: 50px solid transparent;
+    	border-right: 50px solid transparent;
+    	border-bottom: 100px solid red;
+    }*/
+  </style>
+
+</head>
+<body>
+  <div class="beep"></div>
+  <div class="brain"></div>
+  <div class="torso"></div>
+  <div class="foot"></div>
+  <div class="triangle"></div>
+</body>
+</html>
+
+<!-- NOTES -->
+
+<!-- To make an empty div visible, it needs a width, a height, and a background or a border color. -->
+<!-- A border needs a width, style (solid, dashed, dotted, or double), and color to become visible. -->
+<!-- You can style the borders of any HTML element one by one to make triangles, stars, trapezoids, and more. -->
+
+<!-- The triangle has no width, height, or background color.  So, it should not be visible.  But there is a width, style, and color applied on its bottom border.  -->
+
+<!--BORDER RADIUS -->
+<!-- border-radius: 100px 100px 100px 100px; -->
+
+<!-- RADIAL GRADIENT -->
+<!-- background: radial-gradient(shape, centercolor, outcolor), [a color preserve the existing background]; -->
+<!-- By default a round radial gradient wants to be centered in the HTML element that contains it.  Thus, use background-size to control how many times, and where it appears in the shape. -->
+
+<!-- BACKGROUND SIZE -->
+<!-- background-size: width height; -->
+<!-- Could have also used background-size: 50% 100%; above -->
